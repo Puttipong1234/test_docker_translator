@@ -1,14 +1,18 @@
-version: '3'
+version: "3.7"
+
 services:
-  web:
-    volumes:
-      - ./app:/app
+  flask:
+    build: ./PYBOTT-TRANSLATOR
+    container_name : PYBOTT-TRANSLATOR
+    restart: always
+    environment:
+      - APP_NAME=PYBOTT-TRANSLATOR
+    expose:
+      - 8080
+  
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    restart: always
     ports:
       - "80:80"
-    environment:
-      - FLASK_APP=PYBOTT-TRANSLATOR/app.py
-      - FLASK_DEBUG=1
-      - 'RUN=flask run --host=0.0.0.0 --port=80'
-    command: flask run --host=0.0.0.0 --port=80
-    # Infinite loop, to keep it alive, for debugging
-    # command: bash -c "while true; do echo 'sleeping...' && sleep 10; done"
