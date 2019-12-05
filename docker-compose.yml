@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-  flask:
+  PYBOTT-TRANSLATOR:
     build: ./PYBOTT-TRANSLATOR
     container_name : PYBOTT-TRANSLATOR
     restart: always
