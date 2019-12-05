@@ -1,12 +1,12 @@
 version: "3"
 
 services:
-  PYBOTT-TRANSLATOR:
-    build: ./PYBOTT-TRANSLATOR
-    container_name : PYBOTT-TRANSLATOR
+  pybott_test:
+    build: ./pybott_test
+    container_name : pybott_test
     restart: always
     environment:
-      - APP_NAME=PYBOTT-TRANSLATOR
+      - APP_NAME=pybott_test
     expose:
       - 8080
   
